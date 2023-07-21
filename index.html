@@ -11,7 +11,13 @@
     <section class="centerFrame">
       <!-- SPLASH SCREEN -->
       <div id="splashScreen">
-        <img src="./images/Start_Screen.jpg" alt="Splash Screen Picture" />
+        <!-- UNDRAGABLE IMAGES -->
+        <img
+          src="./images/Start_Screen.jpg"
+          alt="Splash Screen Picture"
+          onmousedown="return false;"
+          ondragstart="return false;"
+        />
         <div id="buttonAndInstrctions">
           <h1>Move The Mouse And Click To Splat</h1>
           <button id="startButton">Start Playing!</button>
@@ -21,7 +27,13 @@
       <!-- GAME SCREEN -->
       <div id="gameScreen">
         <div id="gameBox">
-          <!-- <img src="./images/Game_Background.jpg" alt="Game Background Picture" /> -->
+          <!-- UNDRAGABLE IMAGES -->
+          <img
+            src="./images/Game_Background.jpg"
+            alt="Game Background Picture"
+            onmousedown="return false;"
+            ondragstart="return false;"
+          />
         </div>
       </div>
 

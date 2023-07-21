@@ -8,10 +8,10 @@ class Raquet {
     gameBoxNode.append(this.node);
 
     //POSICION PROPERTIES FOR RAQUET
-    this.x = 50;
-    this.y = 50;
-    this.w = 40;
-    this.h = 35;
+    this.x = 10;
+    this.y = 10;
+    this.w = 46;
+    this.h = 100;
 
     //INITIALIZATION VALUES
 
@@ -26,12 +26,12 @@ class Raquet {
   move(x, y) {
     this.x = x;
     this.y = y;
-    // positionUpdate()
-    console.log(x);
+    this.positionUpdate();
+    // console.log(x);
   }
 
   positionUpdate = () => {
-    this.node.style.top = `${this.x}px`;
-    this.node.style.left = `${this.y}px`;
+    this.node.style.top = `${this.y}px`;
+    this.node.style.left = `${this.x}px`;
   };
 }

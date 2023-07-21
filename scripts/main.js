@@ -10,6 +10,8 @@ const gameBoxNode = document.querySelector("#gameBox");
 function starGame() {
   console.log("startGame Function");
   splashScreenNode.style.display = "none";
+  //HIDE MOUSE CURSOR
+  gameScreenNode.style.cursor = "none";
   gameScreenNode.style.display = "flex";
   gameObj = new Game();
   console.log(gameObj);
@@ -21,6 +23,13 @@ startButtonNode.addEventListener("click", starGame);
 //LIKE THIS WE CAN KNOW WERE THE MOUSE POSTION IS
 gameBoxNode.addEventListener("mousemove", (mousePosition) => {
   //SENDING MOUSE POSITION TO MOUSE MOVE METHOD
-  gameObj.raquet.move(mousePosition.x, mousePosition.y);
-  console.log(mousePosition.x);
+  const rect = mousePosition.target.getBoundingClientRect();
+  //FIX TO MOUSE OFSET
+  console.log(rect.left);
+  gameObj.raquet.move(
+    30 + mousePosition.clientX - rect.left,
+    30 + mousePosition.clientY - rect.top
+  );
+
+  // console.log(mousePosition.x);
 });

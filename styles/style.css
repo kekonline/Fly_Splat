@@ -69,6 +69,8 @@ h1 {
 
 #gameBox {
   background-color: black;
+  height: 720px;
+  width: 1280px;
 }
 
 #startButton:hover {
