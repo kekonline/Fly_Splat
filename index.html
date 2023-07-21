@@ -7,27 +7,30 @@
     <link rel="stylesheet" href="./styles/style.css" />
   </head>
   <body>
-    <!-- SPLASH SCREEN -->
-    <div id="Spash-Sreen">     
-        <button id="Start-Button">Start Playing!</button>
-    </div>
-
-    <!-- GAME SCREEN -->
-    <div id="Game-Box">
-      <div id="Game-Box">       
+    <!-- SECTION  TO CENTER GAME -->
+    <section class="centerFrame">
+      <!-- SPLASH SCREEN -->
+      <div id="splashScreen">
+        <img src="./images/Start_Screen.jpg" alt="Splashh Screen Picture" />
+        <div id="buttonAndInstrctions">
+          <h1>Move The Mouse And Click To Splat</h1>
+          <button id="startButton">Start Playing!</button>
+        </div>
       </div>
-    </div>
 
-    <!-- GAME OVER SCREEN -->
-    <div id="GameOver-Screen">
-      <button id="Restart-Button">Play Again!</button>
-    </div>
+      <!-- GAME SCREEN -->
+      <div id="gameScreen">
+        <div id="gameBox"></div>
+      </div>
 
-    <script src="./scripts/main.js"></script>
-    <script src="./scripts/game.js"></script>
+      <!-- GAME OVER SCREEN -->
+      <div id="gameOverScreen">
+        <button id="restartButton">Play Again!</button>
+      </div>
 
-
-
-
+      <!-- SCRIPTS-->
+      <script src="./scripts/main.js"></script>
+      <script src="./scripts/game.js"></script>
+    </section>
   </body>
 </html>

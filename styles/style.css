@@ -1,4 +1,95 @@
-body{
+#splashScreen {
+  background-color: black;
+  height: 720px;
+  width: 1280px;
+  position: relative;
 
-    background-color: black;
+  background-position: center;
+  background-size: cover;
 }
+
+#gameOverScreen,
+#gameScreen {
+  height: 720px;
+  width: 1280px;
+
+  display: none;
+}
+
+body {
+  font-family: Helvetica, sans-serif;
+}
+
+.centerFrame {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 98vh;
+  width: 98vw;
+}
+
+#gameBox {
+  position: relative;
+}
+
+#buttonAndInstrctions {
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.767),
+    rgba(0, 255, 0, 0)
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: ;
+  align-items: center;
+
+  position: absolute;
+
+  width: 660px;
+  height: 200px;
+
+  top: 480px;
+  left: 370px;
+}
+
+h1 {
+  font-size: 2.2rem;
+}
+
+#startButton,
+#restartButton {
+  width: 220px;
+  height: 50px;
+  border: #000000;
+  outline: none;
+  color: #000000;
+  background: #ffffff;
+  border-radius: 40px;
+  transition: 1s;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+#startButton:hover {
+  color: #ffffff;
+  outline: auto;
+  background: #457c25;
+
+  border-color: aqua;
+}
+
+
+#startButton:active {
+   
+    background: #050e00;
+    width: 200px;
+    height: 40px;
+    
+  }
+
+
+
+
+
+
