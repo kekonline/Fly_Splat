@@ -20,7 +20,7 @@ class Raquet {
     this.node.style.position = "absolute";
     this.node.style.top = `${this.y}px`;
     this.node.style.left = `${this.x}px`;
-    this.node.style.zIndex = "99"
+    this.node.style.zIndex = "99";
   }
 
   //MOVE UPDATES RAQUETS X AND Y VARIABLES
@@ -29,6 +29,9 @@ class Raquet {
     this.y = y;
     this.positionUpdate();
     // console.log(x);
+
+    //UNDRAGABLE
+    this.node.setAttribute("draggable", false);
   }
 
   positionUpdate = () => {

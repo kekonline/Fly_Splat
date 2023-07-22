@@ -8,10 +8,10 @@ class Poop {
     gameBoxNode.append(this.node);
 
     //POSICION PROPERTIES FOR RAQUET
-    this.x = 10;
-    this.y = 10;
-    this.w = 406;
-    this.h = 100;
+    this.x = 580;
+    this.y = 300;
+    this.w = 109;
+    this.h = 90;
 
     //INITIALIZATION VALUES
 
@@ -21,12 +21,7 @@ class Poop {
     this.node.style.top = `${this.y}px`;
     this.node.style.left = `${this.x}px`;
 
-    //INITIALIZATION POSITION
-    this.node.style.top = `${this.y}px`;
-    this.node.style.left = `${this.x}px`;
-
     //UNDRAGABLE
-    // this.node.removeEventListener("mousemove",);
-    //  this.node.style.addEventListener("ondragstart", false);
+    this.node.setAttribute("draggable", false);
   }
 }
