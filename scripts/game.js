@@ -8,7 +8,7 @@ class Game {
     this.isGameOn = true;
     //STORE SPAWNED FLIES
     this.fliesArray = [];
-    this.fliesSpawnRate = 2; /*DIVIDE BY 60 TO GET SECONDS */
+    this.fliesSpawnRate = 60; /*DIVIDE BY 60 TO GET SECONDS */
   }
 
   fliesSpawn = () => {

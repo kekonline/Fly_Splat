@@ -6,12 +6,14 @@ const splashScreenNode = document.querySelector("#splashScreen");
 const gameScreenNode = document.querySelector("#gameScreen");
 const gameBoxNode = document.querySelector("#gameBox");
 const gameOverScreenNode = document.querySelector("#gameOverScreen");
+const restartButtonNode = document.querySelector("#restartButton");
 
 //* GAME STATE MANAGEMENT
 function starGame() {
   console.log("startGame Function");
   splashScreenNode.style.display = "none";
   //HIDE MOUSE CURSOR
+
   gameScreenNode.style.cursor = "none";
   gameScreenNode.style.display = "flex";
 
@@ -21,8 +23,29 @@ function starGame() {
   // console.log(window);
 }
 
+function restarGame() {
+  //TWO WAY OF RESTARTING THE GAME 1, RELOADING ALL THE PAGE. 2, DELETING ALL THE NODES ON SCREEN AND RESETTING gameObj.
+  
+ // location.reload();
+
+
+   gameObj.fliesArray.forEach((flyInFliesArray, index) => {
+   gameObj.fliesArray[index].node.remove();
+   });
+
+   gameObj.poop.node.remove();
+   gameObj.raquet.node.remove();
+
+   gameObj = {};
+   console.log(gameObj);
+
+   gameOverScreenNode.style.display = "none";
+   starGame();
+}
+
 //* EVENT LISTENERS
 startButtonNode.addEventListener("click", starGame);
+restartButtonNode.addEventListener("click", restarGame);
 gameBoxNode.addEventListener("click", () => {
   gameObj.raquet.raquetSplat();
 });
