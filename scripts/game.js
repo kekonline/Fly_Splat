@@ -13,8 +13,8 @@ class Game {
   fliesSpawn = () => {
     if (this.fliesArray.length === 0) {
       this.randomWallUpRightDownLeft = Math.floor(Math.random() * 4);
-      this.randomWidth = Math.floor(Math.random() * 1280);
-      this.randomHeight = Math.floor(Math.random() * 720);
+      this.randomWidth = Math.floor(Math.random() * gameBoxNode.offsetWidth);
+      this.randomHeight = Math.floor(Math.random() * gameBoxNode.offsetHeight);
 
       // console.log(randomWallUpRightDownLeft)
 
@@ -25,8 +25,6 @@ class Game {
         this.randomHeight
       );
       this.fliesArray.push(newFly);
-      console.log(gameBoxNode.offsetWidth);
-      console.log(gameBoxNode.offsetHeight);
     }
   };
 
@@ -34,7 +32,7 @@ class Game {
     // console.log("In the Game Loop")
     this.frames++;
     this.fliesSpawn();
-
+    this.fliesArray[0].move();
     if (this.isGameOn === true) {
       requestAnimationFrame(this.gameLoop);
     }
