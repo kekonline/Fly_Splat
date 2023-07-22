@@ -39,12 +39,8 @@ class Raquet {
     this.node.style.left = `${this.x}px`;
   };
 
-raquetSplat=()=>{
-
-  //console.log("raquet.raquetSpat")
-  gameObj.raquetTofliesColition()
-
-}
-
-
+  raquetSplat = () => {
+    //console.log("raquet.raquetSpat")
+    gameObj.raquetTofliesColition();
+  };
 }

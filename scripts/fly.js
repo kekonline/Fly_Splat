@@ -10,7 +10,9 @@ class Fly {
     this.startPosition(wallUpRightDownLeft, positionWidth, positionHeight);
     this.w = 81;
     this.h = 25;
-    this.movementSpeed = 5;
+    this.movementSpeedX = 6;
+    this.movementSpeedY = 3;
+    this.flyActive = true;
 
     //INITIALIZATION VALUES
 
@@ -22,7 +24,7 @@ class Fly {
 
     //UNDRAGABLE
     this.node.setAttribute("draggable", false);
-    
+
     // console.log("fly constructor")
   }
 
@@ -43,19 +45,18 @@ class Fly {
     }
   };
 
-
   //RANDOMIZING TYPE OF MOVEMENT FLY WILL DO X MOVEMENT, Y MOVEMENT OR BOTH
   move = () => {
     this.chooseRandomeMovementAlgo = Math.floor(Math.random() * 3);
-   // console.log(this.chooseRandomeMovementAlgo);
+    // console.log(this.chooseRandomeMovementAlgo);
     if (this.chooseRandomeMovementAlgo === 0) {
-    //   console.log(this.chooseRandomeMovementAlgo);
+      //   console.log(this.chooseRandomeMovementAlgo);
       this.moveAlgoX();
     } else if (this.chooseRandomeMovementAlgo === 1) {
-    //   console.log(this.chooseRandomeMovementAlgo);
+      //   console.log(this.chooseRandomeMovementAlgo);
       this.moveAlgoY();
     } else if (this.chooseRandomeMovementAlgo === 2) {
-    //   console.log(this.chooseRandomeMovementAlgo);
+      //   console.log(this.chooseRandomeMovementAlgo);
       this.moveAlgoX();
       this.moveAlgoY();
     }
@@ -65,7 +66,7 @@ class Fly {
 
   moveAlgoX = () => {
     //ADDING RANDOM MOVEMENT SO IT MOVES LIKE A FLY
-    this.flyRandomMovement = Math.floor(Math.random() * this.movementSpeed);
+    this.flyRandomMovement = Math.floor(Math.random() * this.movementSpeedX);
 
     if (gameObj.poop.x + 20 >= this.x) {
       this.x = this.x + this.flyRandomMovement;
@@ -75,8 +76,8 @@ class Fly {
   };
 
   moveAlgoY = () => {
-      //ADDING RANDOM MOVEMENT SO IT MOVES LIKE A FLY
-    this.flyRandomMovement = Math.floor(Math.random() * this.movementSpeed);
+    //ADDING RANDOM MOVEMENT SO IT MOVES LIKE A FLY
+    this.flyRandomMovement = Math.floor(Math.random() * this.movementSpeedY);
     if (gameObj.poop.y + 20 >= this.y) {
       this.y = this.y + this.flyRandomMovement;
     } else if (gameObj.poop.y + 20 <= this.y) {

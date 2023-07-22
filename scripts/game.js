@@ -12,10 +12,7 @@ class Game {
   }
 
   fliesSpawn = () => {
-    if (
-      this.fliesArray.length === 0 ||
-      this.frames % this.fliesSpawnRate === 0
-    ) {
+    if (this.frames % this.fliesSpawnRate === 0) {
       //RANDOMIZING WALL TO SPWAN FROME AND X AND Y VALUES FROM THE SELECTED WALL
       this.randomWallUpRightDownLeft = Math.floor(Math.random() * 4);
       this.randomWidth = Math.floor(Math.random() * gameBoxNode.offsetWidth);
@@ -34,9 +31,8 @@ class Game {
   };
 
   raquetTofliesColition = () => {
-
-
-    this.fliesArray.forEach((flyInFliesArray)=>{
+    //  console.log(this.fliesArray,length)
+    this.fliesArray.forEach((flyInFliesArray, index) => {
       if (
         this.raquet.x < flyInFliesArray.x + flyInFliesArray.w &&
         this.raquet.x + this.raquet.w > flyInFliesArray.x &&
@@ -44,22 +40,14 @@ class Game {
         this.raquet.y + this.raquet.h > flyInFliesArray.y
       ) {
         // Collision detected!
-        console.log("Splat")
+        // console.log(index)
+        this.fliesArray[index].node.remove();
+        this.fliesArray.splice(index, 1);
       }
-    
-    
-    
-    })
+    });
 
-
-
-
-
-
-
-};
-
-
+    //console.log(this.fliesArray.length)
+  };
 
   gameLoop = () => {
     // console.log("In the Game Loop")

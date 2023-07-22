@@ -22,10 +22,9 @@ function starGame() {
 
 //* EVENT LISTENERS
 startButtonNode.addEventListener("click", starGame);
-gameBoxNode.addEventListener("click",()=>{
-
-gameObj.raquet.raquetSplat()
-})
+gameBoxNode.addEventListener("click", () => {
+  gameObj.raquet.raquetSplat();
+});
 //LIKE THIS WE CAN KNOW WERE THE MOUSE POSTION IS
 window.addEventListener("mousemove", (mousePosition) => {
   if (gameObj !== null) {
