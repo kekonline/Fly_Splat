@@ -9,6 +9,7 @@ class Game {
     //STORE SPAWNED FLIES
     this.fliesArray = [];
     this.fliesSpawnRate = 60; /*DIVIDE BY 60 TO GET SECONDS */
+    this.startbackgroundMusic();
   }
 
   fliesSpawn = () => {
@@ -33,6 +34,7 @@ class Game {
   raquetTofliesCollision = () => {
     //  console.log(this.fliesArray,length)
     this.fliesArray.forEach((flyInFliesArray, index) => {
+      this.playsmackSound();
       if (
         this.raquet.x < flyInFliesArray.x + flyInFliesArray.w &&
         this.raquet.x + this.raquet.w > flyInFliesArray.x &&
@@ -43,6 +45,7 @@ class Game {
         // console.log(index)
         this.fliesArray[index].node.remove();
         this.fliesArray.splice(index, 1);
+        this.playOuchSound();
       }
     });
 
@@ -67,6 +70,43 @@ class Game {
     this.isGameOn = false;
     gameScreenNode.style.display = "none";
     gameOverScreenNode.style.display = "flex";
+    this.stopbackgroundMusic();
+  };
+
+  startbackgroundMusic = () => {
+    backgroundMusicNode.play();
+
+    backgroundMusicNode.volume = "0.2";
+  };
+
+  stopbackgroundMusic = () => {
+    backgroundMusicNode.pause();
+    backgroundMusicNode.currentTime = 0;
+  };
+
+  playsmackSound = () => {
+    smackSoundNode.volume = "0.2";
+    smackSoundNode.play();
+  };
+
+  playOuchSound = () => {
+    //RANDOM CHANCE TO PLAY OUCH SOUND SOMETIMES IT DOESNT PLAY NOT USING 0 AND 6
+
+    this.chanceToPlaySound = Math.floor(Math.random() * 4);
+
+    if (this.chanceToPlaySound === 0) {
+      // Ouch1SoundNode.volume = "0.8";
+      Ouch1SoundNode.play();
+    } else if (this.chanceToPlaySound === 1) {
+      // Ouch2SoundNode.volume = "0.8";
+      Ouch2SoundNode.play();
+    } else if (this.chanceToPlaySound === 2) {
+      // Ouch3SoundNode.volume = "0.8";
+      Ouch3SoundNode.play();
+    } else if (this.chanceToPlaySound === 3) {
+      // Ouch4SoundNode.volume = "0.8";
+      Ouch4SoundNode.play();
+    }
   };
 
   gameLoop = () => {
