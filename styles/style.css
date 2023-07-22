@@ -15,6 +15,7 @@
   display: none;
   position: relative;
   user-select: none;
+  background-color: #457c25;
   /* background-position: center;
   background-size: cover; */
 }
@@ -58,8 +59,7 @@ h1 {
   user-select: none;
 }
 
-#startButton,
-#restartButton {
+#startButton {
   width: 220px;
   height: 50px;
   border: #000000;
@@ -89,4 +89,49 @@ h1 {
   background: #050e00;
   width: 200px;
   height: 40px;
+}
+
+#restartButton {
+  width: 220px;
+  height: 50px;
+  border: #000000;
+  outline: none;
+  color: #000000;
+  background: #ffffff;
+  border-radius: 40px;
+  transition: 1s;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+#restartButton:hover {
+  color: #ffffff;
+  outline: auto;
+  background: #457c25;
+  border-color: aqua;
+}
+
+#restartButton:active {
+  background: #050e00;
+  width: 200px;
+  height: 40px;
+}
+
+#buttonAndFrase {
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.767),
+    rgba(0, 255, 0, 0)
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 350px;
+  height: 250px;
+  top: 340px;
+  left: 820px;
+  border-radius: 40px;
+  user-select: none;
 }

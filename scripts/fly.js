@@ -10,8 +10,8 @@ class Fly {
     this.startPosition(wallUpRightDownLeft, positionWidth, positionHeight);
     this.w = 81;
     this.h = 25;
-    this.movementSpeedX = 6;
-    this.movementSpeedY = 3;
+    this.movementSpeedX = 20;
+    this.movementSpeedY = 20;
     this.flyActive = true;
 
     //INITIALIZATION VALUES

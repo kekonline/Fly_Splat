@@ -41,6 +41,6 @@ class Raquet {
 
   raquetSplat = () => {
     //console.log("raquet.raquetSpat")
-    gameObj.raquetTofliesColition();
+    gameObj.raquetTofliesCollision();
   };
 }

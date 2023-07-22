@@ -8,7 +8,7 @@ class Game {
     this.isGameOn = true;
     //STORE SPAWNED FLIES
     this.fliesArray = [];
-    this.fliesSpawnRate = 120; /*DIVIDE BY 60 TO GET SECONDS */
+    this.fliesSpawnRate = 2; /*DIVIDE BY 60 TO GET SECONDS */
   }
 
   fliesSpawn = () => {
@@ -30,7 +30,7 @@ class Game {
     }
   };
 
-  raquetTofliesColition = () => {
+  raquetTofliesCollision = () => {
     //  console.log(this.fliesArray,length)
     this.fliesArray.forEach((flyInFliesArray, index) => {
       if (
@@ -49,11 +49,31 @@ class Game {
     //console.log(this.fliesArray.length)
   };
 
+  flyToPoopCollision = () => {
+    this.fliesArray.forEach((flyInFliesArray, index) => {
+      if (
+        this.poop.x < flyInFliesArray.x + flyInFliesArray.w &&
+        this.poop.x + this.poop.w > flyInFliesArray.x &&
+        this.poop.y < flyInFliesArray.y + flyInFliesArray.h &&
+        this.poop.y + this.poop.h > flyInFliesArray.y
+      ) {
+        //console.log("Fly is in Poop")
+        this.gameOver();
+      }
+    });
+  };
+
+  gameOver = () => {
+    this.isGameOn = false;
+    gameScreenNode.style.display = "none";
+    gameOverScreenNode.style.display = "flex";
+  };
+
   gameLoop = () => {
     // console.log("In the Game Loop")
     this.frames++;
     this.fliesSpawn();
-
+    this.flyToPoopCollision();
     this.fliesArray.forEach((flyInFliesArray) => {
       flyInFliesArray.move();
     });

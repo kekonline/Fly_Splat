@@ -5,6 +5,7 @@ const startButtonNode = document.querySelector("#startButton");
 const splashScreenNode = document.querySelector("#splashScreen");
 const gameScreenNode = document.querySelector("#gameScreen");
 const gameBoxNode = document.querySelector("#gameBox");
+const gameOverScreenNode = document.querySelector("#gameOverScreen");
 
 //* GAME STATE MANAGEMENT
 function starGame() {
