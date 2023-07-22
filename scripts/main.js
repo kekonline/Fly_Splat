@@ -13,23 +13,25 @@ function starGame() {
   //HIDE MOUSE CURSOR
   gameScreenNode.style.cursor = "none";
   gameScreenNode.style.display = "flex";
+
   gameObj = new Game();
   console.log(gameObj);
   gameObj.gameLoop();
+  console.log(window);
 }
 
 //* EVENT LISTENERS
 startButtonNode.addEventListener("click", starGame);
-//LIKE THIS WE CAN KNOW WERE THE MOUSE POSTION IS
-gameBoxNode.addEventListener("mousemove", (mousePosition) => {
-  //SENDING MOUSE POSITION TO MOUSE MOVE METHOD
-  const rect = mousePosition.target.getBoundingClientRect();
-  //FIX TO MOUSE OFSET
-  console.log(rect.left);
-  gameObj.raquet.move(
-    30 + mousePosition.clientX - rect.left,
-    30 + mousePosition.clientY - rect.top
-  );
 
-  // console.log(mousePosition.x);
+//LIKE THIS WE CAN KNOW WERE THE MOUSE POSTION IS
+window.addEventListener("mousemove", (mousePosition) => {
+  //CALCULATING GAMEBOX OFFSET FROM THE DOCUMENT TO KEEP POINTER ALIGNED
+  const hOffSetCalculation = (document.body.clientHeight - 720) / 2;
+  const wOffSetCalculation = (document.body.clientWidth - 1280) / 2;
+
+  //SENDIND X, Y VALUES TO UPDATE RAQUET POSICION
+  gameObj.raquet.move(
+    mousePosition.x - wOffSetCalculation,
+    mousePosition.y - hOffSetCalculation
+  );
 });

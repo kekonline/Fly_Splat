@@ -3,7 +3,7 @@ console.log("Game.js Start");
 class Game {
   constructor() {
     this.raquet = new Raquet();
-
+    this.poop = new Poop();
     this.frames = 0;
     this.isGameOn = true;
   }

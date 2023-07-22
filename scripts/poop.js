@@ -1,16 +1,16 @@
-console.log("Raquet.js Start");
+console.log("Poop.js Start");
 
-class Raquet {
+class Poop {
   constructor() {
     // CREAT ELEMENT IN DOME
     this.node = document.createElement("img");
-    this.node.src = "./images/Raquet.png";
+    this.node.src = "./images/Poop.png";
     gameBoxNode.append(this.node);
 
     //POSICION PROPERTIES FOR RAQUET
     this.x = 10;
     this.y = 10;
-    this.w = 46;
+    this.w = 406;
     this.h = 100;
 
     //INITIALIZATION VALUES
@@ -20,19 +20,13 @@ class Raquet {
     this.node.style.position = "absolute";
     this.node.style.top = `${this.y}px`;
     this.node.style.left = `${this.x}px`;
-    this.node.style.zIndex = "99"
-  }
 
-  //MOVE UPDATES RAQUETS X AND Y VARIABLES
-  move(x, y) {
-    this.x = x;
-    this.y = y;
-    this.positionUpdate();
-    // console.log(x);
-  }
-
-  positionUpdate = () => {
+    //INITIALIZATION POSITION
     this.node.style.top = `${this.y}px`;
     this.node.style.left = `${this.x}px`;
-  };
+
+    //UNDRAGABLE
+    // this.node.removeEventListener("mousemove",);
+    //  this.node.style.addEventListener("ondragstart", false);
+  }
 }
