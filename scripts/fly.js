@@ -4,7 +4,7 @@ class Fly {
   constructor(wallUpRightDownLeft, positionWidth, positionHeight) {
     // CREAT ELEMENT IN DOME
     this.node = document.createElement("img");
-    this.node.src = "./images/Fly.png";
+    this.node.src = "./images/Fly_1.png";
     gameBoxNode.append(this.node);
 
     this.startPosition(wallUpRightDownLeft, positionWidth, positionHeight);
@@ -26,6 +26,8 @@ class Fly {
     this.node.setAttribute("draggable", false);
 
     // console.log("fly constructor")
+    this.flyFlyAnimationInFrame = 1;
+    this.flyFlyAnimationFps = 2;
   }
 
   startPosition = (wallUpRightDownLeft, positionWidth, positionHeight) => {
@@ -88,5 +90,19 @@ class Fly {
   positionUpdate = () => {
     this.node.style.top = `${this.y}px`;
     this.node.style.left = `${this.x}px`;
+  };
+
+  flyFlyAnimation = () => {
+    // console.log("flyflylittlefly")
+
+    if (gameObj.frames % this.flyFlyAnimationFps === 0) {
+      if (this.flyFlyAnimationInFrame === 1) {
+        this.flyFlyAnimationInFrame++;
+        this.node.src = `./images/Fly_${this.flyFlyAnimationInFrame}.png`;
+      } else if (this.flyFlyAnimationInFrame === 2) {
+        this.flyFlyAnimationInFrame = 1;
+        this.node.src = `./images/Fly_${this.flyFlyAnimationInFrame}.png`;
+      }
+    }
   };
 }

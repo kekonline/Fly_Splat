@@ -111,12 +111,18 @@ class Game {
     }
   };
 
+  animateFlies = () => {
+    this.fliesArray.forEach((flyInFliesArray, index) => {
+      this.fliesArray[index].flyFlyAnimation();
+    });
+  };
+
   gameLoop = () => {
     // console.log("In the Game Loop")
     this.frames++;
     this.fliesSpawn();
     this.flyToPoopCollision();
-
+    this.animateFlies();
     this.raquet.hitAnimation();
 
     this.fliesArray.forEach((flyInFliesArray) => {
