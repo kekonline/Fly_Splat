@@ -10,6 +10,7 @@ class Game {
     this.fliesArray = [];
     this.fliesSpawnRate = 60; /*DIVIDE BY 60 TO GET SECONDS */
     this.startbackgroundMusic();
+    this.doHitAnimationc = false;
   }
 
   fliesSpawn = () => {
@@ -35,6 +36,7 @@ class Game {
     //  console.log(this.fliesArray,length)
     this.fliesArray.forEach((flyInFliesArray, index) => {
       this.playsmackSound();
+
       if (
         this.raquet.x < flyInFliesArray.x + flyInFliesArray.w &&
         this.raquet.x + this.raquet.w > flyInFliesArray.x &&
@@ -114,6 +116,9 @@ class Game {
     this.frames++;
     this.fliesSpawn();
     this.flyToPoopCollision();
+
+    this.raquet.hitAnimation();
+
     this.fliesArray.forEach((flyInFliesArray) => {
       flyInFliesArray.move();
     });

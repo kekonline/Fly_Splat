@@ -4,7 +4,7 @@ class Raquet {
   constructor() {
     // CREAT ELEMENT IN DOME
     this.node = document.createElement("img");
-    this.node.src = "./images/Raquet.png";
+    this.node.src = "./images/Raquet_1.png";
     gameBoxNode.append(this.node);
 
     //POSICION PROPERTIES FOR RAQUET
@@ -21,6 +21,9 @@ class Raquet {
     this.node.style.top = `${this.y}px`;
     this.node.style.left = `${this.x}px`;
     this.node.style.zIndex = "99";
+
+    this.hitAnimationInFrame = 1;
+    this.hitAnimationFps = 3;
   }
 
   //MOVE UPDATES RAQUETS X AND Y VARIABLES
@@ -42,5 +45,26 @@ class Raquet {
   raquetSplat = () => {
     //console.log("raquet.raquetSpat")
     gameObj.raquetTofliesCollision();
+    gameObj.doHitAnimationc = true;
+  };
+
+  hitAnimation = () => {
+    if (gameObj.doHitAnimationc === true) {
+      if (gameObj.frames % this.hitAnimationFps === 0) {
+        if (this.hitAnimationInFrame === 1) {
+          this.hitAnimationInFrame++;
+          this.node.src = `./images/Raquet_${this.hitAnimationInFrame}.png`;
+        } else if (this.hitAnimationInFrame === 2) {
+          this.hitAnimationInFrame++;
+          this.node.src = `./images/Raquet_${this.hitAnimationInFrame}.png`;
+        } else if (this.hitAnimationInFrame === 3) {
+          this.hitAnimationInFrame = 1;
+          this.node.src = `./images/Raquet_${this.hitAnimationInFrame}.png`;
+          gameObj.doHitAnimationc = false;
+        }
+      }
+
+      // console.log("Hit Animation In")
+    }
   };
 }
