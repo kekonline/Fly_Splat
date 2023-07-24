@@ -1,7 +1,13 @@
 console.log("fly.js Start");
 
 class Fly {
-  constructor(wallUpRightDownLeft, positionWidth, positionHeight) {
+  constructor(
+    wallUpRightDownLeft,
+    positionWidth,
+    positionHeight,
+    movementSpeedX,
+    movementSpeedY
+  ) {
     // CREAT ELEMENT IN DOME
     this.node = document.createElement("img");
     this.node.src = "./images/Fly_1.png";
@@ -10,8 +16,8 @@ class Fly {
     this.startPosition(wallUpRightDownLeft, positionWidth, positionHeight);
     this.w = 81;
     this.h = 25;
-    this.movementSpeedX = 6;
-    this.movementSpeedY = 3;
+    this.movementSpeedX = movementSpeedX;
+    this.movementSpeedY = movementSpeedY;
     this.flyActive = true;
 
     //INITIALIZATION VALUES

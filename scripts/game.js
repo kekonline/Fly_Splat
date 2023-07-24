@@ -8,16 +8,96 @@ class Game {
     this.isGameOn = true;
     //STORE SPAWNED FLIES
     this.fliesArray = [];
-    this.fliesSpawnRate = 60; /*DIVIDE BY 60 TO GET SECONDS */
+    this.fliesSpawnRate = 120; /*DIVIDE BY 60 TO GET SECONDS */
+    this.fliesSpeedX = 3;
+    this.fliesSpeedY = 2;
     this.startbackgroundMusic();
     this.doHitAnimation = false;
     this.splatArray = [];
     this.score = 0;
-
+    this.hiScore = 0;
     this.scoreNode = document.querySelector("#score");
     this.hiScoreNode = document.querySelector("#hiScore");
     this.loadHiScore();
+    this.randomDificulty = 0;
   }
+
+  dificulyController = () => {
+    switch (this.frames) {
+      case 300:
+        // IN GAME 5 SECONDS
+        this.fliesSpeedX = 4;
+        this.fliesSpeedY = 3;
+        this.fliesSpawnRate = 60;
+        break;
+      case 600:
+        // IN GAME 10 SECONDS
+        this.fliesSpeedX = 6;
+        this.fliesSpeedY = 3;
+        this.fliesSpawnRate = 120;
+        break;
+      case 900:
+        // IN GAME 15 SECONDS
+        this.fliesSpeedX = 2;
+        this.fliesSpeedY = 2;
+        this.fliesSpawnRate = 20;
+        break;
+      case 1200:
+        // IN GAME 20 SECONDS
+        this.fliesSpeedX = 4;
+        this.fliesSpeedY = 3;
+        this.fliesSpawnRate = 60;
+        break;
+      case 1500:
+        // IN GAME 25 SECONDS
+        this.fliesSpeedX = 6;
+        this.fliesSpeedY = 3;
+        this.fliesSpawnRate = 60;
+        break;
+      case 1800:
+        // IN GAME 30 SECONDS
+        this.fliesSpeedX = 3;
+        this.fliesSpeedY = 3;
+        this.fliesSpawnRate = 20;
+        break;
+      case 2100:
+        // IN GAME 35 SECONDS
+        this.fliesSpeedX = 10;
+        this.fliesSpeedY = 6;
+        this.fliesSpawnRate = 120;
+        break;
+      case 2400:
+        // IN GAME 40 SECONDS
+        this.fliesSpeedX = 15;
+        this.fliesSpeedY = 7;
+        this.fliesSpawnRate = 90;
+        break;
+      case 2700:
+        // IN GAME 45 SECONDS
+        this.fliesSpeedX = 4;
+        this.fliesSpeedY = 4;
+        this.fliesSpawnRate = 20;
+        break;
+      // IN GAME 50 SECONDS
+      case 3000:
+        this.fliesSpeedX = 6;
+        this.fliesSpeedY = 3;
+        this.fliesSpawnRate = 60;
+        break;
+    }
+
+    if (this.frames > 3000 && this.frames % 60 === 0) {
+      this.randomDificulty = Math.floor(Math.random() * 4);
+
+      if (this.randomDificulty === 0) {
+        this.fliesSpeedX++;
+      } else if (this.randomDificulty === 1) {
+        this.fliesSpeedY++;
+      } else if (this.randomDificulty === 2) {
+        this.fliesSpawnRate = this.fliesSpawnRate - 10;
+      }
+    }
+  };
 
   scoreUP = () => {
     this.score++;
@@ -34,7 +114,6 @@ class Game {
       localStorage.getItem("highScore") === undefined ||
       localStorage.getItem("highScore") === null
     ) {
-      this.hiScore = 0;
       this.hiScoreNode.innerText = `Hi-Score: 0`;
     } else {
       this.hiScore = localStorage.getItem("highScore");
@@ -43,8 +122,6 @@ class Game {
   };
 
   saveHiScore = () => {
-    console.log(this.score, this.hiScore);
-
     if (this.score > this.hiScore) {
       localStorage.setItem("highScore", this.score);
     }
@@ -63,7 +140,9 @@ class Game {
       let newFly = new Fly(
         this.randomWallUpRightDownLeft,
         this.randomWidth,
-        this.randomHeight
+        this.randomHeight,
+        this.fliesSpeedX,
+        this.fliesSpeedY
       );
       this.fliesArray.push(newFly);
     }
@@ -178,6 +257,7 @@ class Game {
 
   gameLoop = () => {
     // console.log("In the Game Loop")
+    this.dificulyController();
     this.frames++;
     this.fliesSpawn();
     this.flyToPoopCollision();
