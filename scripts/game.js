@@ -63,7 +63,7 @@ class Game {
         // Collision detected!
         // console.log(index)
         this.splatSpawn(flyInFliesArray.x, flyInFliesArray.y);
-        //this.raquet.flySplatAnimation();
+     
         this.fliesArray[index].node.remove();
         this.fliesArray.splice(index, 1);
         this.playOuchSound();
