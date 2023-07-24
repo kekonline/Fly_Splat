@@ -35,20 +35,12 @@ class Poop {
         this.poopAnimationInFrame++;
         this.node.src = `./images/Poop_${this.poopAnimationInFrame}.png`;
       } else if (this.poopAnimationInFrame === 1) {
-        this.poopAnimationInFrame=Math.floor(Math.random() * 3)
+        this.poopAnimationInFrame = Math.floor(Math.random() * 3);
         this.node.src = `./images/Poop_${this.poopAnimationInFrame}.png`;
       } else if (this.poopAnimationInFrame === 2) {
         this.poopAnimationInFrame--;
         this.node.src = `./images/Poop_${this.poopAnimationInFrame}.png`;
       }
-
-
-
-
     }
   };
-
-
-
-
 }

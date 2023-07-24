@@ -10,7 +10,8 @@ class Game {
     this.fliesArray = [];
     this.fliesSpawnRate = 60; /*DIVIDE BY 60 TO GET SECONDS */
     this.startbackgroundMusic();
-    this.doHitAnimationc = false;
+    this.doHitAnimation = false;
+    this.splatArray = [];
   }
 
   fliesSpawn = () => {
@@ -32,6 +33,22 @@ class Game {
     }
   };
 
+  splatSpawn = (flyPosiionX, flyPosiionY) => {
+    let newSplat = new Splat(flyPosiionX, flyPosiionY);
+    this.splatArray.push(newSplat);
+  };
+
+  splatControl = () => {
+    this.splatArray.forEach((splatInSplatArray, index) => {
+      if (splatInSplatArray.splatActive === true) {
+        this.splatArray[index].splatAnimation();
+      } else if (splatInSplatArray.splatActive === false) {
+        this.splatArray[index].node.remove();
+        this.splatArray.splice(index, 1);
+      }
+    });
+  };
+
   raquetTofliesCollision = () => {
     //  console.log(this.fliesArray,length)
     this.fliesArray.forEach((flyInFliesArray, index) => {
@@ -45,6 +62,8 @@ class Game {
       ) {
         // Collision detected!
         // console.log(index)
+        this.splatSpawn(flyInFliesArray.x, flyInFliesArray.y);
+        //this.raquet.flySplatAnimation();
         this.fliesArray[index].node.remove();
         this.fliesArray.splice(index, 1);
         this.playOuchSound();
@@ -55,7 +74,7 @@ class Game {
   };
 
   flyToPoopCollision = () => {
-    this.fliesArray.forEach((flyInFliesArray, index) => {
+    this.fliesArray.forEach((flyInFliesArray) => {
       if (
         this.poop.x < flyInFliesArray.x + flyInFliesArray.w &&
         this.poop.x + this.poop.w > flyInFliesArray.x &&
@@ -73,6 +92,7 @@ class Game {
     gameScreenNode.style.display = "none";
     gameOverScreenNode.style.display = "flex";
     this.stopbackgroundMusic();
+    Uh_OhSoundNode.play();
   };
 
   startbackgroundMusic = () => {
@@ -123,6 +143,7 @@ class Game {
     this.fliesSpawn();
     this.flyToPoopCollision();
     this.animateFlies();
+    this.splatControl();
     this.raquet.hitAnimation();
     this.poop.poopAnimation();
     this.fliesArray.forEach((flyInFliesArray) => {

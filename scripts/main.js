@@ -13,6 +13,7 @@ const Ouch1SoundNode = document.querySelector("#Ouch1Sound");
 const Ouch2SoundNode = document.querySelector("#Ouch2Sound");
 const Ouch3SoundNode = document.querySelector("#Ouch3Sound");
 const Ouch4SoundNode = document.querySelector("#Ouch4Sound");
+const Uh_OhSoundNode = document.querySelector("#Uh_Oh");
 
 //* GAME STATE MANAGEMENT
 function starGame() {

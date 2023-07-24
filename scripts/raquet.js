@@ -23,7 +23,7 @@ class Raquet {
     this.node.style.zIndex = "99";
 
     this.hitAnimationInFrame = 1;
-    this.hitAnimationFps = 3;
+    this.hitAnimationFps = 5;
   }
 
   //MOVE UPDATES RAQUETS X AND Y VARIABLES
@@ -45,11 +45,11 @@ class Raquet {
   raquetSplat = () => {
     //console.log("raquet.raquetSpat")
     gameObj.raquetTofliesCollision();
-    gameObj.doHitAnimationc = true;
+    gameObj.doHitAnimation = true;
   };
 
   hitAnimation = () => {
-    if (gameObj.doHitAnimationc === true) {
+    if (gameObj.doHitAnimation === true) {
       if (gameObj.frames % this.hitAnimationFps === 0) {
         if (this.hitAnimationInFrame === 1) {
           this.hitAnimationInFrame++;
@@ -60,7 +60,7 @@ class Raquet {
         } else if (this.hitAnimationInFrame === 3) {
           this.hitAnimationInFrame = 1;
           this.node.src = `./images/Raquet_${this.hitAnimationInFrame}.png`;
-          gameObj.doHitAnimationc = false;
+          gameObj.doHitAnimation = false;
         }
       }
 
