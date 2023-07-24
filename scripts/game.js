@@ -12,7 +12,43 @@ class Game {
     this.startbackgroundMusic();
     this.doHitAnimation = false;
     this.splatArray = [];
+    this.score = 0;
+
+    this.scoreNode = document.querySelector("#score");
+    this.hiScoreNode = document.querySelector("#hiScore");
+    this.loadHiScore();
   }
+
+  scoreUP = () => {
+    this.score++;
+
+    this.scoreNode.innerText = `Score: ${this.score}`;
+  };
+
+  scoreReset = () => {
+    this.scoreNode.innerText = `Score: 0`;
+  };
+
+  loadHiScore = () => {
+    if (
+      localStorage.getItem("highScore") === undefined ||
+      localStorage.getItem("highScore") === null
+    ) {
+      this.hiScore = 0;
+      this.hiScoreNode.innerText = `Hi-Score: 0`;
+    } else {
+      this.hiScore = localStorage.getItem("highScore");
+      this.hiScoreNode.innerText = `Hi-Score: ${this.hiScore}`;
+    }
+  };
+
+  saveHiScore = () => {
+    console.log(this.score, this.hiScore);
+
+    if (this.score > this.hiScore) {
+      localStorage.setItem("highScore", this.score);
+    }
+  };
 
   fliesSpawn = () => {
     if (this.frames % this.fliesSpawnRate === 0) {
@@ -63,10 +99,11 @@ class Game {
         // Collision detected!
         // console.log(index)
         this.splatSpawn(flyInFliesArray.x, flyInFliesArray.y);
-     
+
         this.fliesArray[index].node.remove();
         this.fliesArray.splice(index, 1);
         this.playOuchSound();
+        this.scoreUP();
       }
     });
 
@@ -76,10 +113,10 @@ class Game {
   flyToPoopCollision = () => {
     this.fliesArray.forEach((flyInFliesArray) => {
       if (
-        this.poop.x < flyInFliesArray.x + flyInFliesArray.w &&
-        this.poop.x + this.poop.w > flyInFliesArray.x &&
-        this.poop.y < flyInFliesArray.y + flyInFliesArray.h &&
-        this.poop.y + this.poop.h > flyInFliesArray.y
+        this.poop.x < flyInFliesArray.x + flyInFliesArray.w - 20 &&
+        this.poop.x + this.poop.w - 20 > flyInFliesArray.x &&
+        this.poop.y < flyInFliesArray.y + flyInFliesArray.h - 20 &&
+        this.poop.y + this.poop.h - 20 > flyInFliesArray.y
       ) {
         //console.log("Fly is in Poop")
         this.gameOver();
@@ -88,6 +125,8 @@ class Game {
   };
 
   gameOver = () => {
+    this.saveHiScore();
+    this.scoreReset();
     this.isGameOn = false;
     gameScreenNode.style.display = "none";
     gameOverScreenNode.style.display = "flex";
