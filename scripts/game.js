@@ -124,7 +124,7 @@ class Game {
     this.flyToPoopCollision();
     this.animateFlies();
     this.raquet.hitAnimation();
-
+    this.poop.poopAnimation();
     this.fliesArray.forEach((flyInFliesArray) => {
       flyInFliesArray.move();
     });

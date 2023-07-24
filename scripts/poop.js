@@ -4,8 +4,10 @@ class Poop {
   constructor() {
     // CREAT ELEMENT IN DOME
     this.node = document.createElement("img");
-    this.node.src = "./images/Poop.png";
+    this.node.src = "./images/Poop_1.png";
     gameBoxNode.append(this.node);
+    this.poopAnimationInFrame = 1;
+    this.poopAnimationFps = 60;
 
     //POSICION PROPERTIES FOR RAQUET
     this.x = 580;
@@ -24,4 +26,29 @@ class Poop {
     //UNDRAGABLE
     this.node.setAttribute("draggable", false);
   }
+
+  poopAnimation = () => {
+    // console.log("flyflylittlefly")
+
+    if (gameObj.frames % this.poopAnimationFps === 0) {
+      if (this.poopAnimationInFrame === 0) {
+        this.poopAnimationInFrame++;
+        this.node.src = `./images/Poop_${this.poopAnimationInFrame}.png`;
+      } else if (this.poopAnimationInFrame === 1) {
+        this.poopAnimationInFrame=Math.floor(Math.random() * 3)
+        this.node.src = `./images/Poop_${this.poopAnimationInFrame}.png`;
+      } else if (this.poopAnimationInFrame === 2) {
+        this.poopAnimationInFrame--;
+        this.node.src = `./images/Poop_${this.poopAnimationInFrame}.png`;
+      }
+
+
+
+
+    }
+  };
+
+
+
+
 }
