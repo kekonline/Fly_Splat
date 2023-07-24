@@ -17,6 +17,7 @@ const Uh_OhSoundNode = document.querySelector("#Uh_Oh");
 
 //* GAME STATE MANAGEMENT
 function starGame() {
+  document.documentElement.requestFullscreen();
   console.log("startGame Function");
   splashScreenNode.style.display = "none";
   //HIDE MOUSE CURSOR
@@ -35,14 +36,32 @@ function restarGame() {
 
   // location.reload();
 
-  gameObj.fliesArray.forEach((flyInFliesArray, index) => {
-    gameObj.fliesArray[index].node.remove();
-  });
+  console.log(gameBoxNode.innerHTML);
 
-  gameObj.poop.node.remove();
-  gameObj.raquet.node.remove();
+  // gameObj.fliesArray.forEach((flyInFliesArray, index) => {
+  //   gameObj.fliesArray[index].node.remove();
+  // });
+  // gameObj.splatArray.forEach((splatInSplatArray, index) => {
+  //   gameObj.splatArray[index].node.remove();
+  // });
 
-  gameObj = {};
+  // gameObj.poop.node.remove();
+  // gameObj.raquet.node.remove();
+
+  gameBoxNode.innerHTML = `   <!-- UNDRAGABLE IMAGES -->
+  <img
+    src="./images/Game_Background.jpg"
+    alt="Game Background Picture"
+    onmousedown="return false;"
+    ondragstart="return false;"
+    draggable="false"
+  />
+  <div id="gameScore">
+    <h2 id="hiScore">Hi-Score: 0</h2>
+    <h2 id="score">Score: 0</h2>
+  </div>`;
+
+  gameObj.clear;
   console.log(gameObj);
 
   gameOverScreenNode.style.display = "none";
@@ -57,7 +76,7 @@ gameBoxNode.addEventListener("click", () => {
 });
 //LIKE THIS WE CAN KNOW WERE THE MOUSE POSTION IS
 window.addEventListener("mousemove", (mousePosition) => {
-  if (gameObj !== null) {
+  if (gameObj !== null && gameObj.gamePause === false) {
     //CALCULATING GAMEBOX OFFSET FROM THE DOCUMENT TO KEEP POINTER ALIGNED
     const hOffSetCalculation = (document.body.clientHeight - 720) / 2;
     const wOffSetCalculation = (document.body.clientWidth - 1280) / 2;
@@ -67,5 +86,20 @@ window.addEventListener("mousemove", (mousePosition) => {
       mousePosition.x - wOffSetCalculation - 20,
       mousePosition.y - hOffSetCalculation - 20
     );
+  }
+});
+window.addEventListener("keydown", (event) => {
+  console.log(event.key);
+  if (event.key === "m") {
+    backgroundMusicNode.pause();
+  } else if (event.key === "p") {
+    if (gameObj.gamePause === true) {
+      backgroundMusicNode.play();
+      gameObj.gamePause = false;
+      gameObj.gameLoop();
+    } else if (gameObj.gamePause === false) {
+      gameObj.gamePause = true;
+      backgroundMusicNode.pause();
+    }
   }
 });

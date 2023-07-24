@@ -20,6 +20,7 @@ class Game {
     this.hiScoreNode = document.querySelector("#hiScore");
     this.loadHiScore();
     this.randomDificulty = 0;
+    this.gamePause = false;
   }
 
   dificulyController = () => {
@@ -36,11 +37,12 @@ class Game {
         this.fliesSpeedY = 3;
         this.fliesSpawnRate = 120;
         break;
-      case 900:
-        // IN GAME 15 SECONDS
+      case 840:
+        // IN GAME 14 SECONDS
+        // N1CE MUSIC BEAT
         this.fliesSpeedX = 2;
         this.fliesSpeedY = 2;
-        this.fliesSpawnRate = 20;
+        this.fliesSpawnRate = 15;
         break;
       case 1200:
         // IN GAME 20 SECONDS
@@ -211,12 +213,13 @@ class Game {
     gameOverScreenNode.style.display = "flex";
     this.stopbackgroundMusic();
     Uh_OhSoundNode.play();
+    Uh_OhSoundNode.volume = "0.2";
   };
 
   startbackgroundMusic = () => {
     backgroundMusicNode.play();
 
-    backgroundMusicNode.volume = "0.2";
+    backgroundMusicNode.volume = "0.1";
   };
 
   stopbackgroundMusic = () => {
@@ -269,7 +272,7 @@ class Game {
       flyInFliesArray.move();
     });
 
-    if (this.isGameOn === true) {
+    if (this.isGameOn === true && this.gamePause === false) {
       requestAnimationFrame(this.gameLoop);
     }
   };
