@@ -222,9 +222,9 @@ class Game {
   splatControl = () => {
     this.splatArray.forEach((splatInSplatArray, index) => {
       if (splatInSplatArray.splatActive === true) {
-        this.splatArray[index].splatAnimation();
+        splatInSplatArray.splatAnimation();
       } else if (splatInSplatArray.splatActive === false) {
-        this.splatArray[index].node.remove();
+        splatInSplatArray.node.remove();
         this.splatArray.splice(index, 1);
       }
     });
@@ -254,7 +254,7 @@ class Game {
         //CALL THE PLAYOUCH SOUND AND INCREASE THE SCORE
 
         this.splatSpawn(flyInFliesArray.x, flyInFliesArray.y);
-        this.fliesArray[index].node.remove();
+        flyInFliesArray.node.remove();
         this.fliesArray.splice(index, 1);
         this.playOuchSound();
         this.scoreUP();
@@ -336,7 +336,7 @@ class Game {
   //THIS METHOD IS USED TO GO THROUGH EACH FLY IN THE fliesArray AND ANIMATE IT
   animateFlies = () => {
     this.fliesArray.forEach((flyInFliesArray, index) => {
-      this.fliesArray[index].flyFlyAnimation();
+      flyInFliesArray.flyFlyAnimation();
     });
   };
 
