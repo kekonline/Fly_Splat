@@ -96,7 +96,7 @@ gameBoxNode.addEventListener("click", () => {
   }
 });
 
-//LIKE THIS WE CAN KNOW WERE THE MOUSE POSTION IS
+//LIKE THIS WE CAN KNOW WERE THE MOUSE POSTION IS AND SET THE RAQUET ON THE POSITION
 window.addEventListener("mousemove", (mousePosition) => {
   if (gameObj !== null && gameObj.gamePause === false) {
     //CALCULATING GAMEBOX OFFSET FROM THE DOCUMENT TO KEEP POINTER ALIGNED

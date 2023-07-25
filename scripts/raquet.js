@@ -22,31 +22,39 @@ class Raquet {
     this.node.style.left = `${this.x}px`;
     this.node.style.zIndex = "99";
 
+    //hitAnimationInFrame IS USED TO MOVE THROUGH THE DIFFERENT IMAGES OF THE RAQUET TO CREATE AN ANIMATION EFFECT
     this.hitAnimationInFrame = 1;
+    // this.hitAnimationFps WE CAN CONTROL THE SPEED ON THE ANIMATION
     this.hitAnimationFps = 5;
-  }
-
-  //MOVE UPDATES RAQUETS X AND Y VARIABLES
-  move(x, y) {
-    this.x = x;
-    this.y = y;
-    this.positionUpdate();
-    // console.log(x);
 
     //UNDRAGABLE
     this.node.setAttribute("draggable", false);
   }
 
+  //MOVE UPDATES RAQUETS X AND Y STATEMENTS WITH THE MOUSE LISTENER
+  move(x, y) {
+    this.x = x;
+    this.y = y;
+    this.positionUpdate();
+    // console.log(x);
+  }
+
+  //UPDATE THE POSITION OF THE RAQUET ON THE DOM
   positionUpdate = () => {
     this.node.style.top = `${this.y}px`;
     this.node.style.left = `${this.x}px`;
   };
 
+  //THE CLICK FROM THE MOUSE WILL TRIGGER THIS METHOD TO START WITH THE COLLITION PROCESS AND THE ANIMATION
   raquetSplat = () => {
     //console.log("raquet.raquetSpat")
     gameObj.raquetTofliesCollision();
     gameObj.doHitAnimation = true;
   };
+
+  //WE USE THE gameObj.frames TO KNOW IN WHAT FRAME WE ARE IN AND THE % WITH this.flyFlyAnimationFps TO STATE IN WHAT CONSECUTIVE FRAMES WE WANT TO PROCESS THE ANIMATION
+  //AND WE CAN SWITCH BETWEEN THE IMAGES
+  //WHEN THE ANIMATION IS FINISHED WE SET gameObj.doHitAnimation = false SO IT STOPS THE ANIMATION
 
   hitAnimation = () => {
     if (gameObj.doHitAnimation === true) {
