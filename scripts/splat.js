@@ -2,7 +2,7 @@ console.log("Splat.js Start");
 
 class Splat {
   constructor(positionX, positionY) {
-    // CREAT ELEMENT IN DOME
+    // CREAT ELEMENT IN DOM
     this.node = document.createElement("img");
     this.node.src = "./images/Splat_1.png";
     gameBoxNode.append(this.node);

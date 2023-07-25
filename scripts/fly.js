@@ -14,7 +14,7 @@ class Fly {
     movementSpeedX,
     movementSpeedY
   ) {
-    // CREATE ELEMENT IN DOME
+    // CREATE ELEMENT IN DOM
     this.node = document.createElement("img");
     this.node.src = "./images/Fly_1.png";
     gameBoxNode.append(this.node);
