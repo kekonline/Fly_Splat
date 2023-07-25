@@ -1,3 +1,5 @@
+/* SPLASH SCREEN CSS INCIAL SETTINGS */
+
 #splashScreen {
   background-color: black;
   height: 720px;
@@ -8,6 +10,7 @@
   user-select: none;
 }
 
+/* GAME OVER SCREEN AND GAME SCREEN CSS INCIAL SETTINGS */
 #gameOverScreen,
 #gameScreen {
   height: 720px;
@@ -24,6 +27,7 @@ body {
   font-family: Helvetica, sans-serif;
 }
 
+/* TO CENTER THE GAME IN SCREEN */
 .centerFrame {
   display: flex;
   flex-direction: row;
@@ -33,6 +37,14 @@ body {
   width: 98vw;
 }
 
+/* GAMEBOX INICAL SETTINGS HERE IS WERE THE GAME TAKES PLACE */
+#gameBox {
+  background-color: black;
+  height: 720px;
+  width: 1280px;
+}
+
+/* BUTTON AND INSCTRUCTIONS FOR THE SPLASH SCREEN */
 #buttonAndInstrctions {
   background: linear-gradient(
     to bottom,
@@ -59,38 +71,8 @@ h1 {
   user-select: none;
 }
 
-#startButton {
-  width: 220px;
-  height: 50px;
-  border: #000000;
-  outline: none;
-  color: #000000;
-  background: #ffffff;
-  border-radius: 40px;
-  transition: 1s;
-  font-weight: bold;
-  font-size: 1.5rem;
-}
-
-#gameBox {
-  background-color: black;
-  height: 720px;
-  width: 1280px;
-}
-
-#startButton:hover {
-  color: #ffffff;
-  outline: auto;
-  background: #457c25;
-  border-color: aqua;
-}
-
-#startButton:active {
-  background: #050e00;
-  width: 200px;
-  height: 40px;
-}
-
+/* START/RESTART BUTTON STYLE SETTINGS */
+#startButton,
 #restartButton {
   width: 220px;
   height: 50px;
@@ -104,6 +86,8 @@ h1 {
   font-size: 1.5rem;
 }
 
+/* START/RESTART BUTTON HOVER STYLE SETTINGS */
+#startButton:hover,
 #restartButton:hover {
   color: #ffffff;
   outline: auto;
@@ -111,12 +95,15 @@ h1 {
   border-color: aqua;
 }
 
+/* START/RESTART BUTTON WHEN CLICK STYLE STYLE SETTINGS */
+#startButton:active,
 #restartButton:active {
   background: #050e00;
   width: 200px;
   height: 40px;
 }
 
+/* BUTTON AND COMMENT FOR THE GAME OVER SCREEN */
 #buttonAndFrase {
   background: linear-gradient(
     to bottom,
@@ -136,24 +123,22 @@ h1 {
   user-select: none;
 }
 
-
-#gameScore{
- margin: 20px;
- padding:0px 30px;
+/* SUPER BEAUTIFULL GAME SCORE PANEL */
+#gameScore {
+  margin: 20px;
+  padding: 0px 30px;
   top: 0px;
   left: 0px;
   display: flex;
   flex-direction: column;
- justify-content: space-between;
+  justify-content: space-between;
   position: absolute;
-
-background-color:rgba(0, 0, 0, 0.226);
-border-radius: 40px;
-backdrop-filter: blur(5px);
+  background-color: rgba(0, 0, 0, 0.226);
+  border-radius: 40px;
+  backdrop-filter: blur(5px);
 }
 
-
-#gameScore h2{
-color: white;
-blur
+/* GAME PANEL TEXT SETTINGS */
+#gameScore h2 {
+  color: white;
 }
