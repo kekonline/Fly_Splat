@@ -73,9 +73,9 @@ function restarGame() {
     <h2 id="score">Score: 0</h2>
   </div>`;
 
-  //DELETE GAME OBJECT
-  gameObj.clear;
-  console.log(gameObj);
+  //DOESNT DO NOTHING AND THERE IS NO NEED TO CLEAR gameObj AS IT WILL BE RE WRITTEN WHEN WE START A GAME
+  //gameObj.clear;
+  //console.log(gameObj);
 
   //TURN OFF HTE GAME OVER SCREEN AND BOOT/CALL starGame();
   gameOverScreenNode.style.display = "none";
