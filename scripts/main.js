@@ -1,4 +1,4 @@
-console.log("Main.js Start");
+// console.log("Main.js Start");
 //* GLOBAL VARIABLES
 let gameObj = null;
 const startButtonNode = document.querySelector("#startButton");
@@ -46,18 +46,6 @@ function restarGame() {
   //TWO WAY OF RESTARTING THE GAME 1, RELOADING ALL THE PAGE. 2, DELETING ALL THE NODES ON SCREEN AND RESETTING gameObj.
 
   // location.reload();
-
-  //OLD WAY I USED TO RESTART GAME
-  // gameObj.fliesArray.forEach((flyInFliesArray, index) => {
-  //   gameObj.fliesArray[index].node.remove();
-  // });
-  // gameObj.splatArray.forEach((splatInSplatArray, index) => {
-  //   gameObj.splatArray[index].node.remove();
-  // });
-  // gameObj.poop.node.remove();
-  // gameObj.raquet.node.remove();
-
-  //console.log(gameBoxNode.innerHTML);
 
   //WE MODIFY THE INNER HTML TO THE INITIAL VALUES WHEN WE LAUNCHED THE GAME
   gameBoxNode.innerHTML = `   <!-- UNDRAGABLE IMAGES -->
@@ -113,7 +101,7 @@ window.addEventListener("mousemove", (mousePosition) => {
 
 //ADDED SOME EXTRA STUFF M TO MUTE MUSIC AND P TO PAUSE THE GAME KEYBOARD LISTENERS
 window.addEventListener("keydown", (event) => {
-  console.log(event.key);
+  // console.log(event.key);
   if (event.key === "m" || event.key === "M") {
     backgroundMusicNode.pause();
   } else if (event.key === "p" || event.key === "P") {

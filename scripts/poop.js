@@ -1,4 +1,4 @@
-console.log("Poop.js Start");
+// console.log("Poop.js Start");
 
 class Poop {
   constructor() {

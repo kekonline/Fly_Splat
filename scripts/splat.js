@@ -1,4 +1,4 @@
-console.log("Splat.js Start");
+// console.log("Splat.js Start");
 
 class Splat {
   constructor(positionX, positionY) {

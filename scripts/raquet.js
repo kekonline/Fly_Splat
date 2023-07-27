@@ -1,4 +1,4 @@
-console.log("Raquet.js Start");
+// console.log("Raquet.js Start");
 
 class Raquet {
   constructor() {

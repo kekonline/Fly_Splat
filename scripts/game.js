@@ -1,4 +1,4 @@
-console.log("Game.js Start");
+// console.log("Game.js Start");
 
 class Game {
   constructor() {
@@ -52,7 +52,8 @@ class Game {
   //THIS IS MY AMAZING DIFFICULTY ENGINE
   difficulyController = () => {
     //USED A SWITCH FOR NEATER CODE
-    //CHANGING THE FLIES SPEED AND SPAWN RATE FOR EVERY NEW FLY SPAWNED WE CAN CREATE SOME FUKY EFFECTS
+    //CHANGING THE FLIES SPEED AND SPAWN RATE FOR EVERY 
+    //NEW FLY SPAWNED WE CAN CREATE SOME FUKY EFFECTS
 
     switch (this.frames) {
       case 300:
