@@ -1,32 +1,56 @@
 
 
-# NAME OF YOUR PROYECT
+# FLY SPLAT
 
-## [Play the Game!](www.your-deploy-url-here.com)
+## [Play the Game!](https://kekonline.github.io/Fly_Splat/)
 
-![Game Logo](www.your-image-logo-here.com)
+![Game Logo](https://kekonline.github.io/Fly_Splat/images/Logo.png)
 
 
 # Description
 
-Add a simple description of your game here.
+Fly Splat is game where the player has to defend the poop that is on the centre of the screen. To do so the plater must move the raquet with the mouse a click to splat the flies. The game ends when a fly touches the poop. The score is calculated every time you splat a fly.
 
 
 # Main Functionalities
 
-- List here the main functionalities your game will have.
+- You control the raquet with your mouse.
+- You hit the flies by clicking on your mouse.
+- The racket has an animation when you click and a sound.
+- Flies spawn from random points of the screen edges.
+- Flies have different spawn rates and movement speeds.
+- Flies have a small random movement to make the look fuzzy when they move.
+- Flies play a random ouch sound when hit and sometimes don’t play anything.
+- Flies have a flying animation.
+- There is a splat effect when you hit a fly and it has an animation.
+- The poop in the centre has a random animation where I can look to one side or another.
+- If you hit p you can pause the gameplay.
+- There is a score that keeps track of how many flies you have splated.
+- There is a hi score that is saved locally.
 
 # Backlog Functionalities
 
-- List here all functionalities you wish to add to your proyect later.
+- Make the poop angry and create a mega blast to destroy all the flies.
+- Make the game based on levels.
+- Create different types of flies e.g., Strong fly killed with 2 hits.
+- Create butter flies that are not meant to be hit.
+
 
 # Technologies used
 
-- List here all technologies used in the project like HTML, CSS, Javascript, DOM Manipulation, Local Storage, etc
+- HTML
+- CSS
+- JavaScript
+- DOM Manipulation
+- Local Storage
+- JS Audio()
+- JS Image()
 
 # States
 
-- List here the different screens of your game.
+- Start Screen
+- Game Screen
+- Game Over Screen
 
 # Proyect Structure
 
@@ -64,10 +88,10 @@ Example:
 [Link](www.your-excalidraw-url-here.com)
 
 ### Trello
-[Link](www.your-trello-url-here.com)
+[Link](https://trello.com/invite/b/KHOYvy7Y/ATTI89c45e7f0aecc4f306ab00d956c15f41AD86AC44/fly-splat)
 
 ### Slides
-[Link](www.your-slides-url-here.com)
+[Link](https://docs.google.com/presentation/d/1BZLYBqqnliW_XrIxXUIWIJcMXlSvFyNiAnQ2KgbL4wk/edit?usp=sharing)
 
 ## Deploy
 [Link](www.your-deploy-url-here.com)
