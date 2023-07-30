@@ -54,38 +54,127 @@ Fly Splat is game where the player has to defend the poop that is on the centre 
 
 # Proyect Structure
 
-- List here sections for your your different JS files.
-- One for main.js to manage DOM elements, one for the Game class and one for each other class file of your game.
-- Inside each file you can list the functions, clases, properties and methods of your code.
+Fly()
+- this.node
+- this.w
+- this.h
+- this.movementSpeedX
+- this.movementSpeedY
+- this.flyActive
+- this.y
+- this.x
+- this.flyFlyAnimationInFrame
+- this.flyFlyAnimationFps
+- this.chooseRandomeMovementAlgo
+- constructor()
+- startPosition()
+- move()
+- moveAlgoX()
+- moveAlgoY()
+- positionUpdate()
+- flyFlyAnimation()
 
-Example:
 
-## main.js
+Game()
+- this.raquet
+- this.poop
+- this.frames
+- this.isGameOn
+- this.gamePause
+- this.fliesArray
+- this.fliesSpawnRate
+- this.fliesSpeedX
+- this.fliesSpeedY
+- this.doHitAnimation
+- this.splatArray
+- this.score
+- this.hiScore
+- this.scoreNode
+- this.hiScoreNode
+- this.randomDificulty
+- constructor()
+- difficulyController()
+- scoreUP()
+- scoreReset()
+- loadHiScore()
+- saveHiScore()
+- fliesSpawn()
+- splatSpawn()
+- splatControl()
+- raquetTofliesCollision()
+- flyToPoopCollision()
+- gameOver()
+- startbackgroundMusic()
+- stopbackgroundMusic()
+- playsmackSound()
+- playOuchSound()
+- animateFlies()
+- moveFlies()
+- gameLoop()
 
-- list here the functions names of your main.js
+Poop()
+- this.node
+- this.x
+- this.y
+- this.w
+- this.h
+- this.poopAnimationInFrame
+- this.poopAnimationFps
+- constructor()
+- poopAnimation()
 
-## Game.js
+Raquet()
+- this.node
+- this.x
+- this.y
+- this.w
+- this.h
+- this.hitAnimationInFrame
+- this.hitAnimationFps
+- constructor()
+- move()
+- positionUpdate()
+- raquetSplat()
+- hitAnimation()
 
-- Game () {
-    this.player;
-}
+Splat()
+- this.node
+- this.x
+- this.y
+- this.w
+- this.h
+- this.splatActive
+- constructor()
+- splatAnimation()
 
-## Player.js 
-
-- Player () {
-    this.x;
-    this.y;
-    this.w;
-    this.h;
-}
-- drawPlayer () {}
-- movePlayer () {}
+Main()
+- gameObj
+- startButtonNode
+- splashScreenNode
+- gameScreenNode
+- gameBoxNode
+- gameOverScreenNode
+- restartButtonNode
+- backgroundMusicNode
+- smackSoundNode
+- Ouch1SoundNode
+- Ouch2SoundNode
+- Ouch3SoundNode
+- Ouch4SoundNode
+- Uh_OhSoundNode
+- starGame()
+- restarGame()
+- Event Listener for startButtonNode
+- Event Listener for restartButtonNode
+- Event Listener for gameBoxNode (click event)
+- Event Listener for window (mousemove event)
+- Event Listener for window (keydown event)
 
 
 # Extra Links 
 
 ### Sketch
-[Link](www.your-excalidraw-url-here.com)
+[Link](https://kekonline.github.io/Fly_Splat/Idea/Fly_Splat.jpg)
 
 ### Trello
 [Link](https://trello.com/invite/b/KHOYvy7Y/ATTI89c45e7f0aecc4f306ab00d956c15f41AD86AC44/fly-splat)
@@ -94,4 +183,4 @@ Example:
 [Link](https://docs.google.com/presentation/d/1BZLYBqqnliW_XrIxXUIWIJcMXlSvFyNiAnQ2KgbL4wk/edit?usp=sharing)
 
 ## Deploy
-[Link](www.your-deploy-url-here.com)
+[Link](https://kekonline.github.io/Fly_Splat/)
