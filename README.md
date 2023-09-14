@@ -1,16 +1,14 @@
-
-
 # FLY SPLAT
 
 ## [Play the Game!](https://kekonline.github.io/Fly_Splat/)
 
 ![Game Logo](https://kekonline.github.io/Fly_Splat/images/Logo.png)
 
-
 # Description
 
 Fly Splat is game where the player has to defend the poop that is on the centre of the screen. To do so the plater must move the raquet with the mouse a click to splat the flies. The game ends when a fly touches the poop. The score is calculated every time you splat a fly.
 
+This is a game where you use the mouse to swat down flies that appear on the screen. The entire interaction is managed through JavaScript, manipulating the Document Object Model (DOM).
 
 # Main Functionalities
 
@@ -35,7 +33,6 @@ Fly Splat is game where the player has to defend the poop that is on the centre 
 - Create different types of flies e.g., Strong fly killed with 2 hits.
 - Create butter flies that are not meant to be hit.
 
-
 # Technologies used
 
 - HTML
@@ -55,6 +52,7 @@ Fly Splat is game where the player has to defend the poop that is on the centre 
 # Proyect Structure
 
 Fly()
+
 - this.node
 - this.w
 - this.h
@@ -74,8 +72,8 @@ Fly()
 - positionUpdate()
 - flyFlyAnimation()
 
-
 Game()
+
 - this.raquet
 - this.poop
 - this.frames
@@ -113,6 +111,7 @@ Game()
 - gameLoop()
 
 Poop()
+
 - this.node
 - this.x
 - this.y
@@ -124,6 +123,7 @@ Poop()
 - poopAnimation()
 
 Raquet()
+
 - this.node
 - this.x
 - this.y
@@ -138,6 +138,7 @@ Raquet()
 - hitAnimation()
 
 Splat()
+
 - this.node
 - this.x
 - this.y
@@ -148,6 +149,7 @@ Splat()
 - splatAnimation()
 
 Main()
+
 - gameObj
 - startButtonNode
 - splashScreenNode
@@ -170,17 +172,20 @@ Main()
 - Event Listener for window (mousemove event)
 - Event Listener for window (keydown event)
 
-
-# Extra Links 
+# Extra Links
 
 ### Sketch
+
 [Link](https://kekonline.github.io/Fly_Splat/Idea/Fly_Splat.jpg)
 
 ### Trello
+
 [Link](https://trello.com/invite/b/KHOYvy7Y/ATTI89c45e7f0aecc4f306ab00d956c15f41AD86AC44/fly-splat)
 
 ### Slides
+
 [Link](https://docs.google.com/presentation/d/1BZLYBqqnliW_XrIxXUIWIJcMXlSvFyNiAnQ2KgbL4wk/edit?usp=sharing)
 
 ## Deploy
+
 [Link](https://kekonline.github.io/Fly_Splat/)
